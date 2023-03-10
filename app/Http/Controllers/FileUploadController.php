@@ -13,14 +13,16 @@ class FileUploadController extends Controller
     public function fileStore(Request $request)
     {
         $request->validate([
-            'files' => 'required|file',
+            'files' => 'required|file|mimes:text/csv,csv|max:5120',
         ]);
 
         $fileName = '';
         $contentFile = '';
+        $fileMimeType = '';
 
         foreach($request->files as $file){
-            $fileName = time().'.'.$file->getClientOriginalExtension();
+            $fileName = time() . $file->getClientOriginalName(); 
+            $fileMimeType = $file->getClientMimeType();
             $file->move(public_path('files'), $fileName);
             $contentFile = file_get_contents(public_path('files') . '/' . $fileName);
         }
@@ -36,11 +38,12 @@ class FileUploadController extends Controller
                 'name' => $fileName));
             $file = $driveService->files->create($fileMetadata, array(
                 'data' => $contentFile, 
-                'mimeType' => 'text/plain',
+                'mimeType' => $fileMimeType, //text/csv must be
                 'uploadType' => 'multipart',
                 'fields' => 'id'));
         }
         catch(Exception $e){
+            ddd($e);
             return back()
                 ->with('error','Error in upload archive :(.');
         }
