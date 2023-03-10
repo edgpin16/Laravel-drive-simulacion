@@ -7,11 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-##Proyecto de simulacion informática SEMESTRE 2022-II
+## Proyecto de simulacion informática SEMESTRE 2022-II
 
-#Integrantes
+# Integrantes
 
-###Edgardo Pinto C.I. 27.296.482
-###Victor Bolivar C.I. 27.506.373
-###Roxana Salazar C.I. 25.935.452
-###Ronald Muñoz C.I. 20.808.182
+### Edgardo Pinto C.I. 27.296.482
+### Victor Bolivar C.I. 27.506.373
+### Roxana Salazar C.I. 25.935.452
+### Ronald Muñoz C.I. 20.808.182
